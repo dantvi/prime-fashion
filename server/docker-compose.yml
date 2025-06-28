@@ -1,0 +1,22 @@
+services:
+  mysql:
+    image: mysql:8
+    container_name: primefashion-mysql
+    restart: always
+    ports:
+      - '3307:3306' # maps local 3307 -> container 3306
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    volumes:
+      - primefashion-mysql-data:/var/lib/mysql
+
+  adminer:
+    image: adminer
+    container_name: primefashion-adminer
+    restart: always
+    ports:
+      - '8081:8080' # adminer at http://localhost:8081
+
+volumes:
+  primefashion-mysql-data:
