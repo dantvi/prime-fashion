@@ -1,0 +1,22 @@
+{
+  "name": "primefashion-api",
+  "version": "1.0.0",
+  "description": "Backend for PrimeFashion – a fullstack e-commerce app",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mysql2": "^3.12.0",
+    "stripe": "^17.7.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.2"
+  }
+}
