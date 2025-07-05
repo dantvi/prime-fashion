@@ -9,7 +9,7 @@ import { db, connectDB } from './config/db';
 import { updateProductStockForOrder } from './controllers/orderStockController';
 
 import productRouter from './routes/product.routes';
-import customerRouter from './routes/customers';
+import customerRouter from './routes/customer.routes';
 import orderRouter from './routes/orders';
 import orderItemRouter from './routes/orderItems';
 import stripeRoutes from './routes/stripe.routes';
@@ -25,7 +25,6 @@ app.use(
   })
 );
 
-// Stripe webhook requires raw body
 app.post(
   '/stripe/webhook',
   bodyParser.raw({ type: 'application/json' }),
