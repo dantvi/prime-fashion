@@ -13,6 +13,8 @@ import customerRouter from './routes/customer.routes';
 import orderRouter from './routes/orders';
 import orderItemRouter from './routes/orderItems';
 import stripeRoutes from './routes/stripe.routes';
+import cartRouter from './routes/cart.routes';
+import cartItemRouter from './routes/cartItem.routes';
 
 const app = express();
 connectDB();
@@ -81,6 +83,8 @@ app.use('/products', productRouter);
 app.use('/customers', customerRouter);
 app.use('/orders', orderRouter);
 app.use('/order-items', orderItemRouter);
+app.use('/carts', cartRouter);
+app.use('/cart-items', cartItemRouter);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
