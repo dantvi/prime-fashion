@@ -1,5 +1,3 @@
-export const logError = (error: unknown) => {
-  return error instanceof Error 
-    ? error.message 
-    : "Unknown error"
-}
+export const logError = (error: unknown): string => {
+  return error instanceof Error ? error.message : 'Unknown error';
+};
