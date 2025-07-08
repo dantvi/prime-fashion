@@ -6,7 +6,6 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import { stripe } from './config/stripe';
 import { db, connectDB } from './config/db';
-import { updateProductStockForOrder } from './controllers/orderStockController';
 
 import productRouter from './routes/product.routes';
 import customerRouter from './routes/customer.routes';
@@ -58,11 +57,26 @@ app.post(
 
       if (orderId) {
         try {
+          // Uppdatera betalstatus
           await db.query(
             `UPDATE orders SET payment_status = 'Paid', order_status = 'Received', payment_id = ? WHERE order_id = ?`,
             [stripeSessionId, orderId]
           );
-          await updateProductStockForOrder(Number(orderId));
+
+          // Hämta order items för att minska lagersaldo
+          const [items] = await db.query<any[]>(
+            `SELECT product_id, quantity FROM order_items WHERE order_id = ?`,
+            [orderId]
+          );
+
+          for (const item of items) {
+            await db.query(
+              `UPDATE products SET stock = stock - ? WHERE product_id = ?`,
+              [item.quantity, item.product_id]
+            );
+          }
+
+          console.log(`Stock updated for order ID ${orderId}`);
         } catch (err) {
           console.error('Failed to update DB or stock:', err);
         }
