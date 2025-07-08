@@ -29,10 +29,15 @@ export const createCartItem = async (
   item: Omit<CartItem, 'cart_item_id' | 'created_at' | 'updated_at'>
 ): Promise<number> => {
   const sql = `
-    INSERT INTO cart_items (cart_id, product_id, quantity, price)
+    INSERT INTO cart_items (cart_id, product_id, quantity, price_each)
     VALUES (?, ?, ?, ?)
   `;
-  const params = [item.cart_id, item.product_id, item.quantity, item.price];
+  const params = [
+    item.cart_id,
+    item.product_id,
+    item.quantity,
+    item.price_each,
+  ];
   const [result] = await db.query<ResultSetHeader>(sql, params);
   return result.insertId;
 };
@@ -43,10 +48,16 @@ export const updateCartItem = async (
 ): Promise<boolean> => {
   const sql = `
     UPDATE cart_items SET 
-      cart_id = ?, product_id = ?, quantity = ?, price = ?
+      cart_id = ?, product_id = ?, quantity = ?, price_each = ?
     WHERE cart_item_id = ?
   `;
-  const params = [item.cart_id, item.product_id, item.quantity, item.price, id];
+  const params = [
+    item.cart_id,
+    item.product_id,
+    item.quantity,
+    item.price_each,
+    id,
+  ];
   const [result] = await db.query<ResultSetHeader>(sql, params);
   return result.affectedRows > 0;
 };
