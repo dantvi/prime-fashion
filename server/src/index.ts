@@ -10,8 +10,8 @@ import { updateProductStockForOrder } from './controllers/orderStockController';
 
 import productRouter from './routes/product.routes';
 import customerRouter from './routes/customer.routes';
-import orderRouter from './routes/orders';
-import orderItemRouter from './routes/orderItems';
+import orderRoutes from './routes/order.routes';
+import orderItemRouter from './routes/orderItem.routes';
 import stripeRoutes from './routes/stripe.routes';
 import cartRouter from './routes/cart.routes';
 import cartItemRouter from './routes/cartItem.routes';
@@ -59,7 +59,7 @@ app.post(
       if (orderId) {
         try {
           await db.query(
-            `UPDATE orders SET payment_status = 'Paid', order_status = 'Received', payment_id = ? WHERE id = ?`,
+            `UPDATE orders SET payment_status = 'Paid', order_status = 'Received', payment_id = ? WHERE order_id = ?`,
             [stripeSessionId, orderId]
           );
           await updateProductStockForOrder(Number(orderId));
@@ -81,7 +81,7 @@ app.use(express.json());
 app.use('/stripe', stripeRoutes);
 app.use('/products', productRouter);
 app.use('/customers', customerRouter);
-app.use('/orders', orderRouter);
+app.use('/orders', orderRoutes);
 app.use('/order-items', orderItemRouter);
 app.use('/carts', cartRouter);
 app.use('/cart-items', cartItemRouter);
