@@ -5,11 +5,17 @@ import {
   HeroTitle,
   HeroButton,
 } from '../styles/Home.styles';
-
+import { useNavigate } from 'react-router-dom';
 import heroDesktop from '../assets/hero-desktop.jpg';
 import heroMobile from '../assets/hero-mobile.jpg';
 
 const Home = () => {
+  const navigate = useNavigate();
+
+  const handleExploreClick = () => {
+    navigate('/shop');
+  };
+
   return (
     <HeroWrapper>
       <HeroPictureWrapper>
@@ -21,7 +27,7 @@ const Home = () => {
       </HeroPictureWrapper>
       <HeroContent>
         <HeroTitle>Modern Looks for Daily Life</HeroTitle>
-        <HeroButton>EXPLORE COLLECTION</HeroButton>
+        <HeroButton onClick={handleExploreClick}>EXPLORE COLLECTION</HeroButton>
       </HeroContent>
     </HeroWrapper>
   );
