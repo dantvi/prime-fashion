@@ -7,15 +7,26 @@ export const HeroWrapper = styled.div`
   overflow: hidden;
 `;
 
-export const HeroImage = styled.img`
+export const HeroPictureWrapper = styled.picture`
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  display: block;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+
+    @media (min-width: 768px) {
+      object-position: center top;
+    }
+  }
 `;
 
 export const HeroContent = styled.div`
   position: absolute;
-  top: 340px;
+  top: 360px;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -23,6 +34,11 @@ export const HeroContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (min-width: 768px) {
+    top: 75vh;
+    transform: translate(-50%, -50%);
+  }
 `;
 
 export const HeroTitle = styled.h1`
@@ -34,6 +50,7 @@ export const HeroTitle = styled.h1`
   letter-spacing: 1.21px;
   color: #333333;
   opacity: 0.7;
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
   text-transform: uppercase;
   margin-bottom: 40px;
 

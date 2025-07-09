@@ -1,18 +1,24 @@
 import {
   HeroWrapper,
-  HeroImage,
+  HeroPictureWrapper,
   HeroContent,
   HeroTitle,
   HeroButton,
 } from '../styles/Home.styles';
 
+import heroDesktop from '../assets/hero-desktop.jpg';
+import heroMobile from '../assets/hero-mobile.jpg';
+
 const Home = () => {
   return (
     <HeroWrapper>
-      <HeroImage
-        src='https://images.unsplash.com/photo-1617019114583-affb34d1b3cd?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-        alt='Woman in white dress and sunglasses posing in sunlight against a rustic stone wall'
-      />
+      <HeroPictureWrapper>
+        <source srcSet={heroMobile} media='(max-width: 767px)' />
+        <img
+          src={heroDesktop}
+          alt='Stylish women in casual clothing sitting at outdoor café'
+        />
+      </HeroPictureWrapper>
       <HeroContent>
         <HeroTitle>Modern Looks for Daily Life</HeroTitle>
         <HeroButton>EXPLORE COLLECTION</HeroButton>
