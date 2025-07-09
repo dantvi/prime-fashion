@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from './pages/Navigation';
+import Home from './pages/Home';
 import Shop from './pages/Shop';
 import Checkout from './pages/Checkout';
 import Admin from './pages/Admin';
@@ -18,7 +19,7 @@ function App() {
     <Router>
       <Navigation />
       <Routes>
-        <Route path='/' element={<h1>Welcome to our shop!</h1>} />
+        <Route path='/' element={<Home />} />
         <Route path='/shop' element={<Shop />} />
         <Route path='/checkout' element={<Checkout />} />
         <Route path='/admin' element={<Admin />} />
