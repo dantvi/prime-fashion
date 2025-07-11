@@ -79,7 +79,6 @@ export const IconContainer = styled.div`
   }
 `;
 
-// Mobile Navigation
 export const MobileNav = styled.div`
   display: none;
 
@@ -89,7 +88,8 @@ export const MobileNav = styled.div`
     justify-content: space-between;
     padding: 20px 60px;
     background-color: white;
-    z-index: 10;
+    position: relative;
+    z-index: 9999;
 
     @media (max-width: 450px) {
       padding: 20px 15px;
@@ -97,13 +97,35 @@ export const MobileNav = styled.div`
   }
 `;
 
-export const MobileMenuButton = styled.button`
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
+export const MobileMenuWrapper = styled.div`
+  position: relative;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
+  justify-content: center;
+`;
+
+export const MobileMenuButton = styled.button`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 48px;
+  height: 48px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    pointer-events: none;
+  }
 `;
 
 export const MobileMenu = styled.div`
@@ -121,7 +143,7 @@ export const MobileMenu = styled.div`
   transition: transform 0.3s ease-out, opacity 0.3s ease-out;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   border-top: 1px solid #e4e4e4;
-  z-index: 9;
+  z-index: 99;
 
   &.open {
     transform: translateY(0);

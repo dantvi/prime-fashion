@@ -9,14 +9,15 @@ import {
   NavItem,
   IconContainer,
   MobileNav,
+  MobileMenuWrapper,
   MobileMenuButton,
   MobileMenu,
   MobileMenuList,
   MobileMenuItem,
 } from '../styles/Navbar.styles';
-import { FiSearch, FiHeart } from 'react-icons/fi';
+import { FiSearch, FiHeart, FiMenu } from 'react-icons/fi';
 import { FaRegUser } from 'react-icons/fa';
-import { RiShoppingBagLine, RiMenu2Line } from 'react-icons/ri';
+import { RiShoppingBagLine } from 'react-icons/ri';
 import { MdOutlineClose } from 'react-icons/md';
 import Badge from '@mui/material/Badge';
 import logo from '../assets/prime-fashion-logo.jpg';
@@ -74,13 +75,15 @@ const Navbar = () => {
 
       {/* Mobile Nav */}
       <MobileNav>
-        <MobileMenuButton onClick={toggleMobileMenu}>
-          {mobileMenuOpen ? (
-            <MdOutlineClose size={24} />
-          ) : (
-            <RiMenu2Line size={24} />
-          )}
-        </MobileMenuButton>
+        <MobileMenuWrapper>
+          <MobileMenuButton onClick={toggleMobileMenu}>
+            {mobileMenuOpen ? (
+              <MdOutlineClose size={24} />
+            ) : (
+              <FiMenu size={24} />
+            )}
+          </MobileMenuButton>
+        </MobileMenuWrapper>
 
         <LogoContainer>
           <Link to='/'>
