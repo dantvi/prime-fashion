@@ -5,7 +5,7 @@ export const NavbarContainer = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 20px 100px;
-  background-color: rgb(228, 228, 228);
+  background-color: white;
   position: sticky;
   top: 0;
   z-index: 10;

@@ -19,7 +19,7 @@ import { FaRegUser } from 'react-icons/fa';
 import { RiShoppingBagLine, RiMenu2Line } from 'react-icons/ri';
 import { MdOutlineClose } from 'react-icons/md';
 import Badge from '@mui/material/Badge';
-import logo from '../assets/prime-fashion.jpg';
+import logo from '../assets/prime-fashion-logo.jpg';
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
