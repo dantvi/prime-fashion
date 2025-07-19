@@ -1,6 +1,4 @@
-import styled from 'styled-components';
-
-export const NavbarContainer = styled.nav`
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,79 +8,79 @@ export const NavbarContainer = styled.nav`
   top: 0;
   z-index: 10;
   box-shadow: 0 10px 33px rgba(0, 0, 0, 0.1);
+}
 
-  @media (max-width: 1210px) {
+@media (max-width: 1210px) {
+  .navbar {
     display: none;
   }
-`;
+}
 
-export const LogoContainer = styled.div`
+.logo-container {
   display: flex;
   align-items: center;
   justify-content: center;
-`;
+}
 
-export const LogoImage = styled.img`
+.logo-image {
   height: 40px;
   object-fit: contain;
   border-radius: 5px;
-`;
+}
 
-export const LinksContainer = styled.div``;
-
-export const NavList = styled.ul`
+.nav-list {
   display: flex;
   align-items: center;
   gap: 40px;
   list-style: none;
-`;
+}
 
-export const NavItem = styled.li`
-  a {
-    text-decoration: none;
-    color: #1b1b1b;
-    font-size: 14px;
-    font-weight: 600;
-    position: relative;
+.nav-item a {
+  text-decoration: none;
+  color: #1b1b1b;
+  font-size: 14px;
+  font-weight: 600;
+  position: relative;
+}
 
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: #1b1b1b;
-      transition: width 0.3s ease-out;
-    }
+.nav-item a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #1b1b1b;
+  transition: width 0.3s ease-out;
+}
 
-    &:hover::after {
-      width: 60%;
-    }
-  }
-`;
+.nav-item a:hover::after {
+  width: 60%;
+}
 
-export const IconContainer = styled.div`
+.icon-container {
   display: flex;
   align-items: center;
   gap: 35px;
+}
 
-  a {
-    display: flex;
-    align-items: center;
-    color: black;
-    text-decoration: none;
-  }
+.icon-container a {
+  display: flex;
+  align-items: center;
+  color: black;
+  text-decoration: none;
+}
 
-  svg {
-    cursor: pointer;
-  }
-`;
+.icon-container svg {
+  cursor: pointer;
+}
 
-export const MobileNav = styled.div`
+.mobile-nav {
   display: none;
+}
 
-  @media (max-width: 1210px) {
+@media (max-width: 1210px) {
+  .mobile-nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -90,23 +88,25 @@ export const MobileNav = styled.div`
     background-color: white;
     position: relative;
     z-index: 9999;
+  }
 
-    @media (max-width: 450px) {
+  @media (max-width: 450px) {
+    .mobile-nav {
       padding: 20px 15px;
     }
   }
-`;
+}
 
-export const MobileMenuWrapper = styled.div`
+.mobile-menu-wrapper {
   position: relative;
   width: 48px;
   height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-`;
+}
 
-export const MobileMenuButton = styled.button`
+.mobile-menu-button {
   position: absolute;
   top: 0;
   left: 0;
@@ -120,15 +120,15 @@ export const MobileMenuButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+}
 
-  svg {
-    width: 24px;
-    height: 24px;
-    pointer-events: none;
-  }
-`;
+.mobile-menu-button svg {
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+}
 
-export const MobileMenu = styled.div`
+.mobile-menu {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -144,26 +144,34 @@ export const MobileMenu = styled.div`
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   border-top: 1px solid #e4e4e4;
   z-index: 99;
+  pointer-events: none;
+}
 
-  &.open {
-    transform: translateY(0);
-    opacity: 1;
+.mobile-menu.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media screen and (min-width: 1211px) {
+  .mobile-menu {
+    display: none !important;
   }
-`;
+}
 
-export const MobileMenuList = styled.ul`
+.mobile-menu-list {
   list-style: none;
   margin: 0;
   padding: 20px 0;
-`;
+}
 
-export const MobileMenuItem = styled.li`
+.mobile-menu-item {
   padding: 15px 20px;
+}
 
-  a {
-    text-decoration: none;
-    color: #1b1b1b;
-    font-size: 16px;
-    font-weight: 600;
-  }
-`;
+.mobile-menu-item a {
+  text-decoration: none;
+  color: #1b1b1b;
+  font-size: 16px;
+  font-weight: 600;
+}
