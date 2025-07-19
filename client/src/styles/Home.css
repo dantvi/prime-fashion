@@ -1,30 +1,30 @@
-import styled from 'styled-components';
-
-export const HeroWrapper = styled.div`
+.hero-wrapper {
   position: relative;
   width: 100%;
   height: 100vh;
   overflow: hidden;
-`;
+}
 
-export const HeroPictureWrapper = styled.picture`
+.hero-picture {
   width: 100%;
   height: 100%;
   display: block;
+}
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+.hero-picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
-    @media (min-width: 768px) {
-      object-position: center top;
-    }
+@media (min-width: 768px) {
+  .hero-picture img {
+    object-position: center top;
   }
-`;
+}
 
-export const HeroContent = styled.div`
+.hero-content {
   position: absolute;
   top: 360px;
   left: 50%;
@@ -34,14 +34,16 @@ export const HeroContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+}
 
-  @media (min-width: 768px) {
+@media (min-width: 768px) {
+  .hero-content {
     top: 75vh;
     transform: translate(-50%, -50%);
   }
-`;
+}
 
-export const HeroTitle = styled.h1`
+.hero-title {
   font-family: 'Bodoni Moda', serif;
   font-size: 38.66px;
   font-style: italic;
@@ -53,13 +55,15 @@ export const HeroTitle = styled.h1`
   text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
   text-transform: uppercase;
   margin-bottom: 40px;
+}
 
-  @media (min-width: 768px) {
+@media (min-width: 768px) {
+  .hero-title {
     font-size: 2.5rem;
   }
-`;
+}
 
-export const HeroButton = styled.button`
+.hero-button {
   width: 253px;
   height: 40px;
   background-color: rgba(0, 0, 0, 0.4);
@@ -82,8 +86,8 @@ export const HeroButton = styled.button`
   justify-content: center;
 
   transition: background-color 0.3s ease;
+}
 
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.6);
-  }
-`;
+.hero-button:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
