@@ -1,26 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  NavbarContainer,
-  LogoContainer,
-  LogoImage,
-  LinksContainer,
-  NavList,
-  NavItem,
-  IconContainer,
-  MobileNav,
-  MobileMenuWrapper,
-  MobileMenuButton,
-  MobileMenu,
-  MobileMenuList,
-  MobileMenuItem,
-} from '../styles/Navbar.styles';
 import { FiSearch, FiHeart, FiMenu } from 'react-icons/fi';
 import { FaRegUser } from 'react-icons/fa';
 import { RiShoppingBagLine } from 'react-icons/ri';
 import { MdOutlineClose } from 'react-icons/md';
 import Badge from '@mui/material/Badge';
 import logo from '../assets/prime-fashion-logo.jpg';
+import '../styles/Navbar.css';
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -42,24 +28,24 @@ const Navbar = () => {
   return (
     <>
       {/* Desktop Navbar */}
-      <NavbarContainer>
-        <LogoContainer>
+      <nav className='navbar'>
+        <div className='logo-container'>
           <Link to='/'>
-            <LogoImage src={logo} alt='Prime Fashion Logo' />
+            <img src={logo} alt='Prime Fashion Logo' className='logo-image' />
           </Link>
-        </LogoContainer>
+        </div>
 
-        <LinksContainer>
-          <NavList>
+        <div className='links-container'>
+          <ul className='nav-list'>
             {navLinks.map(({ path, label }) => (
-              <NavItem key={path}>
+              <li key={path} className='nav-item'>
                 <Link to={path}>{label}</Link>
-              </NavItem>
+              </li>
             ))}
-          </NavList>
-        </LinksContainer>
+          </ul>
+        </div>
 
-        <IconContainer>
+        <div className='icon-container'>
           <FiSearch size={22} />
           <Link to='/login'>
             <FaRegUser size={22} />
@@ -70,46 +56,46 @@ const Navbar = () => {
             </Badge>
           </Link>
           <FiHeart size={22} />
-        </IconContainer>
-      </NavbarContainer>
+        </div>
+      </nav>
 
       {/* Mobile Nav */}
-      <MobileNav>
-        <MobileMenuWrapper>
-          <MobileMenuButton onClick={toggleMobileMenu}>
+      <div className='mobile-nav'>
+        <div className='mobile-menu-wrapper'>
+          <button className='mobile-menu-button' onClick={toggleMobileMenu}>
             {mobileMenuOpen ? (
               <MdOutlineClose size={24} />
             ) : (
               <FiMenu size={24} />
             )}
-          </MobileMenuButton>
-        </MobileMenuWrapper>
+          </button>
+        </div>
 
-        <LogoContainer>
+        <div className='logo-container'>
           <Link to='/'>
-            <LogoImage src={logo} alt='Prime Fashion Logo' />
+            <img src={logo} alt='Prime Fashion Logo' className='logo-image' />
           </Link>
-        </LogoContainer>
+        </div>
 
         <Link to='/cart'>
           <Badge badgeContent={2} color='primary'>
             <RiShoppingBagLine size={22} />
           </Badge>
         </Link>
-      </MobileNav>
+      </div>
 
       {/* Mobile Menu List */}
-      <MobileMenu className={mobileMenuOpen ? 'open' : ''}>
-        <MobileMenuList>
+      <div className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
+        <ul className='mobile-menu-list'>
           {navLinks.map(({ path, label }) => (
-            <MobileMenuItem key={path}>
+            <li key={path} className='mobile-menu-item'>
               <Link to={path} onClick={toggleMobileMenu}>
                 {label}
               </Link>
-            </MobileMenuItem>
+            </li>
           ))}
-        </MobileMenuList>
-      </MobileMenu>
+        </ul>
+      </div>
     </>
   );
 };
